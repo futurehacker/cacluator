@@ -7,14 +7,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    TextView text;
-
+    int [] a ;
+    char [] b;
+    int count= 0;
+    int num_result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView txt;
         Button num1 = (Button)findViewById(R.id.num1);
         Button num2 = (Button)findViewById(R.id.num2);
         Button num3 = (Button)findViewById(R.id.num3);
@@ -26,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button num9 = (Button)findViewById(R.id.num9);
         Button num0 = (Button)findViewById(R.id.num0);
         Button opplus = (Button)findViewById(R.id.opplus);
-        Button opresult = (Button)findViewById(R.id.opresult);
-        text = (TextView)findViewById(R.id.a);
+        Button opsub = (Button)findViewById(R.id.opsub);
+        Button result = (Button)findViewById(R.id.result);
+
         num0.setOnClickListener(this);
         num1.setOnClickListener(this);
         num2.setOnClickListener(this);
@@ -39,47 +42,75 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         num8.setOnClickListener(this);
         num9.setOnClickListener(this);
         opplus.setOnClickListener(this);
-        opresult.setOnClickListener(this);
-    }
+        opsub.setOnClickListener(this);
+        result.setOnClickListener(this);
+        txt = (TextView)findViewById(R.id.a);
 
+    }
     @Override
+
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.num0:
-                text.setText("0");
+                a[count] = 0;
+               count ++;
                 break;
             case R.id.num1:
-                text.setText("1");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num2:
-                text.setText("2");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num3:
-                text.setText("3");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num4:
-                text.setText("4");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num5:
-                text.setText("5");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num6:
-                text.setText("6");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num7:
-                text.setText("7");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num8:
-                text.setText("8");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.num9:
-                text.setText("9");
+                a[count] = 0;
+                count ++;
                 break;
             case R.id.opplus:
-                text.setText("+");
+                b[count] = '+';
+                count ++;
                 break;
-            case R.id.opresult:
-                text.setText("result");
+            case R.id.opsub:
+                b[count] = '-';
+                count ++;
+                break;
+            case R.id.result:
+                if(b [1]== '+') {
+                    num_result = a[0] + a[2];
+                    txt.setText(num_result);
+                }
+                else if (b [1]== '-'){
+                    num_result = a[0] - a[2] ;
+                    txt.setText(num_result);
+                }
+                else
+                    num_result  = -1 ;
+                count ++;
                 break;
         }
     }
